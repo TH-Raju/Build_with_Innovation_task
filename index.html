@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Sentence</title>
+</head>
+
+<body>
+
+    <div class="form" style="text-align: center; padding: 40px;">
+
+        <label for="word" style="font-size: large;">Enter a Sentence:</label><br>
+        <input type="text" id="word" placeholder="Any English Sentence" name="word" style="padding: 6px;"><br><br>
+        <label for="letter" style="font-size: large;">Enter a Letter:</label> <br>
+        <input type="text" id="letter" placeholder="Any Letter form A to Z" name="letter" style="padding: 6px;"><br><br>
+
+
+        <button style="padding: 4px 30px; font-weight: bolder; background-color: aqua; border: 1px solid;"
+            id="calculate-total">
+            Submit
+        </button>
+        <h1 id="out"></h1>
+        <h2 id="output" style=" padding: 8px 15px;"></h2>
+
+    </div>
+
+
+    <script>
+        document.getElementById('calculate-total').addEventListener('click', function () {
+            let word = document.getElementById('word').value;
+            let letter = document.getElementById('letter').value;
+            let out = "Output";
+            let text = "The Letter does not exist in the sentence";
+
+            let matchLetter = word.match(letter);
+            document.getElementById("output").innerHTML = matchLetter;
+
+            // Condition here 
+
+            if (matchLetter) {
+                let i = word.indexOf(letter)
+                let condition = word.slice(i + 1)
+                document.getElementById("out").innerHTML = out;
+                document.getElementById("output").innerHTML = condition;
+                document.getElementById("output").style.color = "black";
+                document.getElementById("output").style.border = "2px solid black";
+            }
+            else {
+                document.getElementById("out").innerHTML = out;
+                document.getElementById("output").innerHTML = text;
+                document.getElementById("output").style.color = "#ff0000";
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
